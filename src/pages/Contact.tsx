@@ -35,8 +35,14 @@ const Contact = () => {
   return (
     <Layout>
       <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
-        {/* Header */}
-        <div className="bg-amber-900 text-amber-50 py-16">
+        {/* Header with Background Image */}
+        <div 
+          className="relative text-white py-16 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1500673922987-e212871fec22?w=600&h=400&fit=crop")',
+            minHeight: '300px'
+          }}
+        >
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
             <p className="text-xl text-amber-200">

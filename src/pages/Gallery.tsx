@@ -51,8 +51,14 @@ const Gallery = () => {
   return (
     <Layout>
       <div className="min-h-screen" style={{ backgroundColor: 'hsl(42, 15%, 96%)' }}>
-        {/* Header */}
-        <div className="text-white py-16" style={{ backgroundColor: 'hsl(17, 41%, 31%)' }}>
+        {/* Header with Background Image */}
+        <div 
+          className="relative text-white py-16 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1582562124811-c09040d0a901?w=600&h=400&fit=crop")',
+            minHeight: '300px'
+          }}
+        >
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-slide-in-up">Gallery</h1>
             <p className="text-xl animate-slide-in-up animation-delay-200" style={{ color: 'hsl(42, 15%, 96%)' }}>
@@ -126,4 +132,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-

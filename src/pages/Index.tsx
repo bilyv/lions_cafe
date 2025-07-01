@@ -12,9 +12,13 @@ import LoyaltyProgram from "@/components/LoyaltyProgram";
 const Index = () => {
   return (
     <Layout>
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-coffee-brown to-caramel-orange">
-        <div className="absolute inset-0 bg-black/20"></div>
+      {/* Hero Section with Background Image */}
+      <section 
+        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=600&h=400&fit=crop")'
+        }}
+      >
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <div className="mb-6 animate-slide-in-up">
             <Coffee className="h-20 w-20 mx-auto mb-4 text-cream-beige" />
