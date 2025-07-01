@@ -1,4 +1,3 @@
-
 import Layout from "@/components/Layout";
 import ReviewsSection from "@/components/ReviewsSection";
 import LoyaltyProgram from "@/components/LoyaltyProgram";
@@ -31,12 +30,12 @@ const About = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50">
+      <div className="min-h-screen" style={{ backgroundColor: 'hsl(42, 15%, 96%)' }}>
         {/* Header */}
-        <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-16">
+        <div className="text-white py-16" style={{ backgroundColor: 'hsl(17, 41%, 31%)' }}>
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-slide-in-up">About Lion's Café</h1>
-            <p className="text-xl text-orange-100 animate-slide-in-up animation-delay-200">
+            <p className="text-xl animate-slide-in-up animation-delay-200" style={{ color: 'hsl(42, 15%, 96%)' }}>
               Discover our story, mission, and the passion behind every cup
             </p>
           </div>
@@ -45,8 +44,8 @@ const About = () => {
         {/* Story Section */}
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-6 animate-fade-in">Our Story</h2>
-            <div className="prose prose-lg max-w-none text-gray-700 space-y-6 animate-fade-in animation-delay-200">
+            <h2 className="text-3xl font-bold mb-6 animate-fade-in" style={{ color: 'hsl(17, 41%, 31%)' }}>Our Story</h2>
+            <div className="prose prose-lg max-w-none space-y-6 animate-fade-in animation-delay-200" style={{ color: 'hsl(0, 0%, 11%)' }}>
               <p>
                 Lion's Café was born from a simple dream: to create a space where exceptional coffee meets genuine hospitality. 
                 Founded in 2018 by coffee enthusiasts Maria and James Rodriguez, our café started as a small neighborhood spot 
@@ -65,11 +64,11 @@ const About = () => {
         </div>
 
         {/* Mission Section */}
-        <div className="bg-gradient-to-r from-orange-100 to-red-100 py-16">
+        <div className="py-16" style={{ backgroundColor: 'hsl(20, 20%, 82%)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 animate-fade-in">Our Mission</h2>
+            <h2 className="text-3xl font-bold mb-8 animate-fade-in" style={{ color: 'hsl(17, 41%, 31%)' }}>Our Mission</h2>
             <div className="bg-white rounded-lg p-8 shadow-lg animate-slide-in-up animation-delay-200">
-              <p className="text-lg text-gray-700 italic">
+              <p className="text-lg italic" style={{ color: 'hsl(0, 0%, 11%)' }}>
                 "To create an exceptional coffee experience that brings people together, supports our community, 
                 and celebrates the art of coffee making while maintaining the highest standards of quality and sustainability."
               </p>
@@ -80,23 +79,23 @@ const About = () => {
         {/* Values Section */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 mb-4 animate-fade-in">Our Values</h2>
-            <p className="text-lg text-gray-600 animate-fade-in animation-delay-200">
+            <h2 className="text-3xl font-bold mb-4 animate-fade-in" style={{ color: 'hsl(17, 41%, 31%)' }}>Our Values</h2>
+            <p className="text-lg animate-fade-in animation-delay-200" style={{ color: 'hsl(0, 0%, 40%)' }}>
               The principles that guide us every day
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className={`text-center bg-white border-orange-200 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 animate-slide-in-up`} style={{ animationDelay: `${index * 0.1}s` }}>
+              <Card key={index} className={`text-center bg-white hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 animate-slide-in-up`} style={{ animationDelay: `${index * 0.1}s`, borderColor: 'hsl(20, 20%, 82%)' }}>
                 <CardHeader>
-                  <div className="mx-auto mb-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-full p-3 w-16 h-16 flex items-center justify-center">
+                  <div className="mx-auto mb-4 rounded-full p-3 w-16 h-16 flex items-center justify-center" style={{ backgroundColor: 'hsl(25, 69%, 45%)' }}>
                     <value.icon className="h-8 w-8 text-white" />
                   </div>
-                  <CardTitle className="text-gray-800">{value.title}</CardTitle>
+                  <CardTitle style={{ color: 'hsl(17, 41%, 31%)' }}>{value.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-600">
+                  <CardDescription style={{ color: 'hsl(0, 0%, 40%)' }}>
                     {value.description}
                   </CardDescription>
                 </CardContent>
@@ -106,22 +105,22 @@ const About = () => {
         </div>
 
         {/* Team Section */}
-        <div className="bg-gradient-to-br from-yellow-50 to-orange-50 py-16">
+        <div className="py-16" style={{ backgroundColor: 'hsl(20, 20%, 82%)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-8 animate-fade-in">Meet Our Team</h2>
+            <h2 className="text-3xl font-bold mb-8 animate-fade-in" style={{ color: 'hsl(17, 41%, 31%)' }}>Meet Our Team</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow animate-slide-in-left">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">Maria Rodriguez</h3>
-                <p className="text-orange-600 mb-3">Co-Founder & Head Barista</p>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2" style={{ color: 'hsl(17, 41%, 31%)' }}>Maria Rodriguez</h3>
+                <p className="mb-3" style={{ color: 'hsl(25, 69%, 45%)' }}>Co-Founder & Head Barista</p>
+                <p style={{ color: 'hsl(0, 0%, 40%)' }}>
                   With over 15 years in the coffee industry, Maria brings expertise in coffee sourcing 
                   and brewing techniques that ensure every cup meets our high standards.
                 </p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow animate-slide-in-right animation-delay-200">
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">James Rodriguez</h3>
-                <p className="text-orange-600 mb-3">Co-Founder & Operations Manager</p>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-semibold mb-2" style={{ color: 'hsl(17, 41%, 31%)' }}>James Rodriguez</h3>
+                <p className="mb-3" style={{ color: 'hsl(25, 69%, 45%)' }}>Co-Founder & Operations Manager</p>
+                <p style={{ color: 'hsl(0, 0%, 40%)' }}>
                   James handles the business side while maintaining our commitment to community engagement 
                   and sustainable practices. His vision keeps Lion's Café growing while staying true to our roots.
                 </p>

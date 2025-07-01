@@ -50,12 +50,12 @@ const Gallery = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50">
+      <div className="min-h-screen" style={{ backgroundColor: 'hsl(42, 15%, 96%)' }}>
         {/* Header */}
-        <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-16">
+        <div className="text-white py-16" style={{ backgroundColor: 'hsl(17, 41%, 31%)' }}>
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-slide-in-up">Gallery</h1>
-            <p className="text-xl text-orange-100 animate-slide-in-up animation-delay-200">
+            <p className="text-xl animate-slide-in-up animation-delay-200" style={{ color: 'hsl(42, 15%, 96%)' }}>
               Take a look at our cozy atmosphere and delicious offerings
             </p>
           </div>
@@ -97,10 +97,10 @@ const Gallery = () => {
                   </p>
                 </div>
                 <div className="p-6 bg-white">
-                  <h3 className="text-xl font-semibold text-gray-800 mb-2 group-hover:text-orange-600 transition-colors">
+                  <h3 className="text-xl font-semibold mb-2 group-hover:transition-colors" style={{ color: 'hsl(17, 41%, 31%)' }}>
                     {item.title}
                   </h3>
-                  <p className="text-gray-600">
+                  <p style={{ color: 'hsl(0, 0%, 40%)' }}>
                     {item.description}
                   </p>
                 </div>
@@ -110,12 +110,12 @@ const Gallery = () => {
         </div>
 
         {/* Visit CTA */}
-        <div className="bg-gradient-to-r from-orange-100 to-red-100 py-12">
+        <div className="py-12" style={{ backgroundColor: 'hsl(20, 20%, 82%)' }}>
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4 animate-fade-in">
+            <h3 className="text-2xl font-bold mb-4 animate-fade-in" style={{ color: 'hsl(17, 41%, 31%)' }}>
               Experience It Yourself
             </h3>
-            <p className="text-gray-700 animate-fade-in animation-delay-200">
+            <p className="animate-fade-in animation-delay-200" style={{ color: 'hsl(0, 0%, 11%)' }}>
               Pictures don't do justice to the warmth and aroma that awaits you at Lion's Café.
             </p>
           </div>
@@ -126,3 +126,4 @@ const Gallery = () => {
 };
 
 export default Gallery;
+

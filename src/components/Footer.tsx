@@ -3,34 +3,34 @@ import { Coffee, Phone, Mail, MapPin } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-gray-100">
+    <footer className="text-cream-100" style={{ backgroundColor: 'hsl(17, 41%, 31%)' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2 text-xl font-bold">
-              <Coffee className="h-8 w-8 text-orange-400" />
+              <Coffee className="h-8 w-8" style={{ color: 'hsl(25, 69%, 45%)' }} />
               <span>Lion's Café</span>
             </div>
-            <p className="text-gray-300">
+            <p className="text-amber-200">
               Serving the finest coffee and creating memorable experiences since our beginning.
             </p>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-200">Contact Us</h3>
+            <h3 className="text-lg font-semibold text-amber-100">Contact Us</h3>
             <div className="space-y-2">
               <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4 text-orange-400" />
+                <Phone className="h-4 w-4" style={{ color: 'hsl(25, 69%, 45%)' }} />
                 <span>(555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4 text-orange-400" />
+                <Mail className="h-4 w-4" style={{ color: 'hsl(25, 69%, 45%)' }} />
                 <span>hello@lionscafe.com</span>
               </div>
               <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4 text-orange-400" />
+                <MapPin className="h-4 w-4" style={{ color: 'hsl(25, 69%, 45%)' }} />
                 <span>123 Coffee Street, Brew City</span>
               </div>
             </div>
@@ -38,7 +38,7 @@ const Footer = () => {
 
           {/* Hours */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-gray-200">Hours</h3>
+            <h3 className="text-lg font-semibold text-amber-100">Hours</h3>
             <div className="space-y-1 text-sm">
               <div className="flex justify-between">
                 <span>Monday - Friday</span>
@@ -56,7 +56,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+        <div className="border-t border-amber-800 mt-8 pt-8 text-center text-amber-300">
           <p>&copy; 2024 Lion's Café. All rights reserved.</p>
         </div>
       </div>
@@ -65,3 +65,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

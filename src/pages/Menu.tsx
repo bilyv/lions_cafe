@@ -47,12 +47,12 @@ const Menu = () => {
 
   return (
     <Layout>
-      <div className="min-h-screen bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50">
+      <div className="min-h-screen" style={{ backgroundColor: 'hsl(42, 15%, 96%)' }}>
         {/* Header */}
-        <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-16">
+        <div className="text-white py-16" style={{ backgroundColor: 'hsl(17, 41%, 31%)' }}>
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-slide-in-up">Our Menu</h1>
-            <p className="text-xl text-orange-100 animate-slide-in-up animation-delay-200">
+            <p className="text-xl animate-slide-in-up animation-delay-200" style={{ color: 'hsl(42, 15%, 96%)' }}>
               Discover our carefully crafted beverages and delicious food options
             </p>
           </div>
@@ -62,29 +62,29 @@ const Menu = () => {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {menuCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="mb-12">
-              <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center animate-fade-in" style={{ animationDelay: `${categoryIndex * 0.1}s` }}>
+              <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in" style={{ color: 'hsl(17, 41%, 31%)', animationDelay: `${categoryIndex * 0.1}s` }}>
                 {category.title}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {category.items.map((item, itemIndex) => (
-                  <Card key={itemIndex} className={`hover:shadow-lg transition-all duration-300 bg-white border-orange-200 transform hover:-translate-y-1 animate-slide-in-up`} style={{ animationDelay: `${(categoryIndex * 5 + itemIndex) * 0.05}s` }}>
+                  <Card key={itemIndex} className={`hover:shadow-lg transition-all duration-300 bg-white transform hover:-translate-y-1 animate-slide-in-up`} style={{ animationDelay: `${(categoryIndex * 5 + itemIndex) * 0.05}s`, borderColor: 'hsl(20, 20%, 82%)' }}>
                     <CardHeader>
                       <div className="flex justify-between items-start">
                         <div className="flex-1">
-                          <CardTitle className="text-gray-800 text-lg flex items-center gap-2">
+                          <CardTitle className="text-lg flex items-center gap-2" style={{ color: 'hsl(17, 41%, 31%)' }}>
                             {item.name}
                             {item.badge && (
-                              <Badge variant="secondary" className="bg-gradient-to-r from-orange-400 to-red-400 text-white">
+                              <Badge variant="secondary" className="text-white" style={{ backgroundColor: 'hsl(25, 69%, 45%)' }}>
                                 {item.badge}
                               </Badge>
                             )}
                           </CardTitle>
-                          <CardDescription className="text-gray-600 mt-1">
+                          <CardDescription className="mt-1" style={{ color: 'hsl(0, 0%, 40%)' }}>
                             {item.description}
                           </CardDescription>
                         </div>
                         <div className="ml-4">
-                          <span className="text-xl font-bold text-orange-600">{item.price}</span>
+                          <span className="text-xl font-bold" style={{ color: 'hsl(25, 69%, 45%)' }}>{item.price}</span>
                         </div>
                       </div>
                     </CardHeader>
@@ -96,12 +96,12 @@ const Menu = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="bg-gradient-to-r from-orange-100 to-red-100 py-12">
+        <div className="py-12" style={{ backgroundColor: 'hsl(20, 20%, 82%)' }}>
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4 animate-fade-in">
+            <h3 className="text-2xl font-bold mb-4 animate-fade-in" style={{ color: 'hsl(17, 41%, 31%)' }}>
               Can't decide? Ask our baristas!
             </h3>
-            <p className="text-gray-700 mb-6 animate-fade-in animation-delay-200">
+            <p className="mb-6 animate-fade-in animation-delay-200" style={{ color: 'hsl(0, 0%, 11%)' }}>
               Our friendly staff is always happy to recommend the perfect drink or meal for you.
             </p>
           </div>
@@ -112,3 +112,4 @@ const Menu = () => {
 };
 
 export default Menu;
+

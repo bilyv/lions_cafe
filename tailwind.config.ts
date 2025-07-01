@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Coffee-themed colors
+				'coffee-brown': 'hsl(var(--coffee-brown))',
+				'caramel-orange': 'hsl(var(--caramel-orange))',
+				'cream-beige': 'hsl(var(--cream-beige))',
+				'light-coffee': 'hsl(var(--light-coffee))',
+				'espresso-black': 'hsl(var(--espresso-black))',
+				'muted-olive': 'hsl(var(--muted-olive))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -94,3 +102,4 @@ export default {
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+
