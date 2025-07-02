@@ -1,73 +1,111 @@
-# Welcome to your Lovable project
+# Lion's Café Web Oasis
 
-## Project info
+A beautiful, modern coffee shop website built with React, TypeScript, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/18ed5ab9-c519-48ed-8e1d-4a455c78444d
+## 🚀 Getting Started
 
-## How can I edit this code?
+### Prerequisites
 
-There are several ways of editing your application.
+- Node.js (v18 or higher)
+- npm or yarn package manager
 
-**Use Lovable**
+### Installation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/18ed5ab9-c519-48ed-8e1d-4a455c78444d) and start prompting.
+1. Clone the repository:
+```bash
+git clone https://github.com/bilyv/lions-cafe-web-oasis.git
+```
 
-Changes made via Lovable will be committed automatically to this repo.
+2. Navigate to the project directory:
+```bash
+cd lions-cafe-web-oasis
+```
 
-**Use your preferred IDE**
+3. Install dependencies:
+```bash
+npm install
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+4. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+5. Open your browser and visit `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📁 Project Structure
 
-**Use GitHub Codespaces**
+```
+src/
+├── components/          # Reusable UI components
+├── pages/              # Page components
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+└── styles/             # Global styles and Tailwind config
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🛠️ Technologies Used
 
-## What technologies are used for this project?
+This project is built with modern web technologies:
 
-This project is built with:
+- **React 18** - Modern React with hooks and functional components
+- **TypeScript** - Type-safe JavaScript for better development experience
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework for rapid styling
+- **shadcn/ui** - Beautiful and accessible UI components
+- **Lucide React** - Beautiful icon library
+- **React Router** - Client-side routing
+- **React Query** - Data fetching and state management
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## ✨ Features
 
-## How can I deploy this project?
+- 🎨 **Beautiful Design** - Coffee-themed UI with warm colors and smooth animations
+- 📱 **Responsive** - Fully responsive design that works on all devices
+- ⚡ **Fast Performance** - Optimized with Vite for lightning-fast development and builds
+- 🔧 **TypeScript** - Full type safety for better development experience
+- 🎭 **Animations** - Smooth CSS animations and transitions
+- 📋 **Interactive Forms** - Contact forms, reservations, and order management
+- 🍕 **Promotions** - Dynamic promotion sections with real images
+- ☕ **Coffee Theme** - Consistent coffee-inspired design throughout
 
-Simply open [Lovable](https://lovable.dev/projects/18ed5ab9-c519-48ed-8e1d-4a455c78444d) and click on Share -> Publish.
+## 🚀 Deployment
 
-## Can I connect a custom domain to my Lovable project?
+### Build for Production
 
-Yes, you can!
+```bash
+npm run build
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Preview Production Build
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+```bash
+npm run preview
+```
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## ☕ About Lion's Café
+
+Lion's Café is a premium coffee experience featuring:
+- Artisanal coffee blends
+- Fresh pastries and meals
+- Cozy atmosphere
+- Loyalty rewards program
+- Online ordering and table reservations
