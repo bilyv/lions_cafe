@@ -17,10 +17,10 @@ const Navigation = () => {
   const leftNavItems = [
     { path: "/", label: "Home" },
     { path: "/menu", label: "Menu" },
+    { path: "/gallery", label: "Gallery" },
   ];
 
   const rightNavItems = [
-    { path: "/gallery", label: "Gallery" },
     { path: "/about", label: "About Us" },
     { path: "/contact", label: "Contact" },
   ];
