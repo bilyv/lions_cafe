@@ -2,45 +2,140 @@
 import Layout from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { ShoppingCart, Info } from "lucide-react";
 
 const Menu = () => {
   const menuCategories = [
     {
       title: "Coffee & Espresso",
       items: [
-        { name: "Classic Espresso", price: "$3.50", description: "Rich, bold shot of our signature blend" },
-        { name: "Cappuccino", price: "$4.25", description: "Espresso with steamed milk and foam" },
-        { name: "Latte", price: "$4.75", description: "Smooth espresso with steamed milk" },
-        { name: "Lion's Special Brew", price: "$5.25", description: "Our signature house blend with caramel notes", badge: "Popular" },
-        { name: "Iced Coffee", price: "$4.00", description: "Cold-brewed coffee served over ice" },
+        { 
+          name: "Classic Espresso", 
+          price: "$3.50", 
+          description: "Rich, bold shot of our signature blend",
+          image: "https://images.unsplash.com/photo-1510591509098-f4fdc79b83b8?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Cappuccino", 
+          price: "$4.25", 
+          description: "Espresso with steamed milk and foam",
+          image: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Latte", 
+          price: "$4.75", 
+          description: "Smooth espresso with steamed milk",
+          image: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Lion's Special Brew", 
+          price: "$5.25", 
+          description: "Our signature house blend with caramel notes", 
+          badge: "Popular",
+          image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Iced Coffee", 
+          price: "$4.00", 
+          description: "Cold-brewed coffee served over ice",
+          image: "https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=300&h=200&fit=crop"
+        },
       ]
     },
     {
       title: "Specialty Drinks",
       items: [
-        { name: "Mocha Delight", price: "$5.50", description: "Rich chocolate and espresso blend" },
-        { name: "Vanilla Macchiato", price: "$5.25", description: "Espresso with vanilla syrup and foam art" },
-        { name: "Caramel Frappuccino", price: "$5.75", description: "Blended ice coffee with caramel" },
-        { name: "Golden Turmeric Latte", price: "$4.95", description: "Healthy blend with turmeric and spices", badge: "New" },
+        { 
+          name: "Mocha Delight", 
+          price: "$5.50", 
+          description: "Rich chocolate and espresso blend",
+          image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Vanilla Macchiato", 
+          price: "$5.25", 
+          description: "Espresso with vanilla syrup and foam art",
+          image: "https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Caramel Frappuccino", 
+          price: "$5.75", 
+          description: "Blended ice coffee with caramel",
+          image: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Golden Turmeric Latte", 
+          price: "$4.95", 
+          description: "Healthy blend with turmeric and spices", 
+          badge: "New",
+          image: "https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=300&h=200&fit=crop"
+        },
       ]
     },
     {
       title: "Food & Pastries",
       items: [
-        { name: "Fresh Croissant", price: "$3.25", description: "Buttery, flaky pastry baked daily" },
-        { name: "Avocado Toast", price: "$8.50", description: "Multigrain bread with fresh avocado and seasonings" },
-        { name: "Lion's Breakfast Sandwich", price: "$9.75", description: "Eggs, cheese, and bacon on artisan bread", badge: "Popular" },
-        { name: "Blueberry Muffin", price: "$3.75", description: "House-made with fresh blueberries" },
-        { name: "Caesar Salad", price: "$11.25", description: "Fresh greens with parmesan and our signature dressing" },
+        { 
+          name: "Fresh Croissant", 
+          price: "$3.25", 
+          description: "Buttery, flaky pastry baked daily",
+          image: "https://images.unsplash.com/photo-1555507036-ab794f4ade75?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Avocado Toast", 
+          price: "$8.50", 
+          description: "Multigrain bread with fresh avocado and seasonings",
+          image: "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Lion's Breakfast Sandwich", 
+          price: "$9.75", 
+          description: "Eggs, cheese, and bacon on artisan bread", 
+          badge: "Popular",
+          image: "https://images.unsplash.com/photo-1481070555726-e2fe8357725b?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Blueberry Muffin", 
+          price: "$3.75", 
+          description: "House-made with fresh blueberries",
+          image: "https://images.unsplash.com/photo-1607958996333-41aef7caefaa?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Caesar Salad", 
+          price: "$11.25", 
+          description: "Fresh greens with parmesan and our signature dressing",
+          image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=300&h=200&fit=crop"
+        },
       ]
     },
     {
       title: "Tea & Other Beverages",
       items: [
-        { name: "Earl Grey Tea", price: "$3.25", description: "Classic bergamot-flavored black tea" },
-        { name: "Green Tea", price: "$3.00", description: "Antioxidant-rich green tea" },
-        { name: "Hot Chocolate", price: "$4.25", description: "Rich cocoa with whipped cream" },
-        { name: "Fresh Orange Juice", price: "$4.50", description: "Freshly squeezed daily" },
+        { 
+          name: "Earl Grey Tea", 
+          price: "$3.25", 
+          description: "Classic bergamot-flavored black tea",
+          image: "https://images.unsplash.com/photo-1594631661960-31ff800c5049?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Green Tea", 
+          price: "$3.00", 
+          description: "Antioxidant-rich green tea",
+          image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Hot Chocolate", 
+          price: "$4.25", 
+          description: "Rich cocoa with whipped cream",
+          image: "https://images.unsplash.com/photo-1542990253-a781e04c0082?w=300&h=200&fit=crop"
+        },
+        { 
+          name: "Fresh Orange Juice", 
+          price: "$4.50", 
+          description: "Freshly squeezed daily",
+          image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=300&h=200&fit=crop"
+        },
       ]
     }
   ];
@@ -71,29 +166,44 @@ const Menu = () => {
               <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in" style={{ color: 'hsl(17, 41%, 31%)', animationDelay: `${categoryIndex * 0.1}s` }}>
                 {category.title}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {category.items.map((item, itemIndex) => (
-                  <Card key={itemIndex} className={`hover:shadow-lg transition-all duration-300 bg-white transform hover:-translate-y-1 animate-slide-in-up`} style={{ animationDelay: `${(categoryIndex * 5 + itemIndex) * 0.05}s`, borderColor: 'hsl(20, 20%, 82%)' }}>
-                    <CardHeader>
+                  <Card key={itemIndex} className="hover:shadow-lg transition-all duration-300 bg-white transform hover:-translate-y-1 animate-slide-in-up overflow-hidden" style={{ animationDelay: `${(categoryIndex * 5 + itemIndex) * 0.05}s`, borderColor: 'hsl(20, 20%, 82%)' }}>
+                    <div className="relative">
+                      <img 
+                        src={item.image} 
+                        alt={item.name}
+                        className="w-full h-48 object-cover"
+                      />
+                      {item.badge && (
+                        <Badge className="absolute top-2 right-2 text-white" style={{ backgroundColor: 'hsl(25, 69%, 45%)' }}>
+                          {item.badge}
+                        </Badge>
+                      )}
+                    </div>
+                    <CardHeader className="pb-2">
                       <div className="flex justify-between items-start">
-                        <div className="flex-1">
-                          <CardTitle className="text-lg flex items-center gap-2" style={{ color: 'hsl(17, 41%, 31%)' }}>
-                            {item.name}
-                            {item.badge && (
-                              <Badge variant="secondary" className="text-white" style={{ backgroundColor: 'hsl(25, 69%, 45%)' }}>
-                                {item.badge}
-                              </Badge>
-                            )}
-                          </CardTitle>
-                          <CardDescription className="mt-1" style={{ color: 'hsl(0, 0%, 40%)' }}>
-                            {item.description}
-                          </CardDescription>
-                        </div>
-                        <div className="ml-4">
-                          <span className="text-xl font-bold" style={{ color: 'hsl(25, 69%, 45%)' }}>{item.price}</span>
-                        </div>
+                        <CardTitle className="text-lg" style={{ color: 'hsl(17, 41%, 31%)' }}>
+                          {item.name}
+                        </CardTitle>
+                        <span className="text-xl font-bold ml-4" style={{ color: 'hsl(25, 69%, 45%)' }}>{item.price}</span>
                       </div>
+                      <CardDescription className="mt-1" style={{ color: 'hsl(0, 0%, 40%)' }}>
+                        {item.description}
+                      </CardDescription>
                     </CardHeader>
+                    <CardContent className="pt-0">
+                      <div className="flex gap-2">
+                        <Button size="sm" className="flex-1 bg-caramel-orange hover:bg-caramel-orange/90 text-white">
+                          <ShoppingCart className="h-4 w-4 mr-2" />
+                          Order
+                        </Button>
+                        <Button size="sm" variant="outline" className="flex-1 border-caramel-orange text-caramel-orange hover:bg-caramel-orange hover:text-white">
+                          <Info className="h-4 w-4 mr-2" />
+                          Details
+                        </Button>
+                      </div>
+                    </CardContent>
                   </Card>
                 ))}
               </div>

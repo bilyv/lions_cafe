@@ -149,6 +149,15 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 .animate-slide-in-left {
   animation: slideInLeft 0.6s ease-out forwards;
 }
@@ -188,4 +197,3 @@ All colors MUST be HSL.
 .animation-delay-600 {
   animation-delay: 0.6s;
 }
-

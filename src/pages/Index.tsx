@@ -6,7 +6,7 @@ import { Coffee, ArrowDown } from "lucide-react";
 import FeaturedMenu from "@/components/FeaturedMenu";
 import ReviewsSection from "@/components/ReviewsSection";
 import ValueSection from "@/components/ValueSection";
-import EventsSection from "@/components/EventsSection";
+import PromotionsSection from "@/components/PromotionsSection";
 import LoyaltyProgram from "@/components/LoyaltyProgram";
 
 const Index = () => {
@@ -58,8 +58,8 @@ const Index = () => {
       {/* Loyalty Program */}
       <LoyaltyProgram />
 
-      {/* Events Section */}
-      <EventsSection />
+      {/* Promotions Section */}
+      <PromotionsSection />
 
       {/* Call to Action */}
       <section className="py-16 bg-coffee-brown text-cream-beige">
