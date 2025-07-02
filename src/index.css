@@ -158,6 +158,38 @@ All colors MUST be HSL.
   }
 }
 
+@keyframes vibrate {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-2px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(2px);
+  }
+}
+
+@keyframes scaleUpDown {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .animate-slide-in-left {
   animation: slideInLeft 0.6s ease-out forwards;
 }
@@ -172,6 +204,18 @@ All colors MUST be HSL.
 
 .animate-fade-in {
   animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-vibrate {
+  animation: vibrate 0.5s ease-in-out infinite;
+}
+
+.animate-scale-up-down {
+  animation: scaleUpDown 2s ease-in-out infinite;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
 }
 
 .animation-delay-100 {
