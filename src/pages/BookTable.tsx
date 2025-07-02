@@ -2,8 +2,12 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Calendar, Users, MapPin, CheckCircle } from "lucide-react";
+import ReservationPopup from "@/components/ReservationPopup";
+import { useState } from "react";
 
 const BookTable = () => {
+  const [isReservationOpen, setIsReservationOpen] = useState(false);
+
   return (
     <Layout>
       <div className="min-h-screen" style={{ backgroundColor: 'hsl(42, 15%, 96%)' }}>
@@ -80,7 +84,11 @@ const BookTable = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button size="lg" className="bg-caramel-orange hover:bg-caramel-orange/90 text-white">
+            <Button
+              size="lg"
+              className="bg-caramel-orange hover:bg-caramel-orange/90 text-white"
+              onClick={() => setIsReservationOpen(true)}
+            >
               Reserve Your Table
             </Button>
           </div>
@@ -113,6 +121,12 @@ const BookTable = () => {
             </div>
           </div>
         </div>
+
+        {/* Reservation Popup */}
+        <ReservationPopup
+          isOpen={isReservationOpen}
+          onClose={() => setIsReservationOpen(false)}
+        />
       </div>
     </Layout>
   );

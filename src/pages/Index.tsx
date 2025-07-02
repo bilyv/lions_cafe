@@ -8,8 +8,12 @@ import ReviewsSection from "@/components/ReviewsSection";
 import ValueSection from "@/components/ValueSection";
 import PromotionsSection from "@/components/PromotionsSection";
 import LoyaltyProgram from "@/components/LoyaltyProgram";
+import ReservationPopup from "@/components/ReservationPopup";
+import { useState } from "react";
 
 const Index = () => {
+  const [isReservationOpen, setIsReservationOpen] = useState(false);
+
   return (
     <Layout>
       {/* Hero Section with Background Image */}
@@ -74,12 +78,23 @@ const Index = () => {
             <Button asChild size="lg" className="bg-caramel-orange hover:bg-caramel-orange/90 text-white shadow-lg hover:shadow-xl transition-all duration-300">
               <Link to="/menu">View Menu</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-cream-beige text-cream-beige hover:bg-cream-beige hover:text-coffee-brown shadow-lg hover:shadow-xl transition-all duration-300">
-              <Link to="/booking">Book a Table</Link>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-cream-beige text-cream-beige hover:bg-cream-beige hover:text-coffee-brown shadow-lg hover:shadow-xl transition-all duration-300"
+              onClick={() => setIsReservationOpen(true)}
+            >
+              Reserve Table
             </Button>
           </div>
         </div>
       </section>
+
+      {/* Reservation Popup */}
+      <ReservationPopup
+        isOpen={isReservationOpen}
+        onClose={() => setIsReservationOpen(false)}
+      />
     </Layout>
   );
 };
