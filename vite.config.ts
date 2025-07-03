@@ -7,6 +7,8 @@ export default defineConfig({
   server: {
     host: "::",
     port: 8080,
+    // Enable history API fallback for client-side routing
+    historyApiFallback: true,
   },
   plugins: [
     react(),
@@ -14,6 +16,14 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  // Ensure proper build configuration for SPA
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
     },
   },
 });
