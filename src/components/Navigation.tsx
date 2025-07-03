@@ -26,7 +26,6 @@ const Navigation = () => {
   ];
 
   const orderItems = [
-    { path: "/order", label: "Order Online", icon: ShoppingCart },
     { path: "/booking", label: "Book a Table", icon: Calendar },
     { path: "/qr-order", label: "Order by QR Scan", icon: QrCode },
   ];

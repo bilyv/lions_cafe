@@ -41,7 +41,7 @@ const Index = () => {
               <Link to="/menu">Explore Our Menu</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-cream-beige text-cream-beige hover:bg-cream-beige hover:text-coffee-brown shadow-lg hover:shadow-xl transition-all duration-300">
-              <Link to="/order">Order Online</Link>
+              <Link to="/qr-order">Order by QR Scan</Link>
             </Button>
           </div>
           <div className="mt-12 animate-bounce">

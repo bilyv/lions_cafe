@@ -70,11 +70,12 @@ CREATE TABLE IF NOT EXISTS tables (
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Orders table - Customer orders
+-- Orders table - Table-based customer orders (QR scan ordering)
+-- All orders must be associated with a table
 CREATE TABLE IF NOT EXISTS orders (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     user_id UUID REFERENCES users(id) ON DELETE SET NULL,
-    table_id UUID REFERENCES tables(id) ON DELETE SET NULL,
+    table_id UUID NOT NULL REFERENCES tables(id) ON DELETE RESTRICT, -- Required for table-based ordering
     order_number VARCHAR(20) UNIQUE NOT NULL,
     status order_status DEFAULT 'pending',
     total_amount DECIMAL(10,2) NOT NULL CHECK (total_amount >= 0),

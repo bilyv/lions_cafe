@@ -4,7 +4,8 @@ import { authenticate, authorize } from '@/middleware/auth';
 
 /**
  * Order routes
- * Handles customer orders
+ * Handles table-based customer orders (QR scan ordering)
+ * All orders must be associated with a table
  */
 const router = Router();
 const orderController = new OrderController();
@@ -25,7 +26,7 @@ router.get('/:id', authenticate, orderController.getOrderById);
 
 /**
  * @route   POST /api/orders
- * @desc    Create new order
+ * @desc    Create new table-based order (QR scan)
  * @access  Private
  */
 router.post('/', authenticate, orderController.createOrder);
