@@ -2,7 +2,7 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Coffee, ArrowDown, ChevronLeft, ChevronRight } from "lucide-react";
+import { Coffee, ArrowDown } from "lucide-react";
 import FeaturedMenu from "@/components/FeaturedMenu";
 import ReviewsSection from "@/components/ReviewsSection";
 import ValueSection from "@/components/ValueSection";
@@ -24,6 +24,7 @@ const Index = () => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
   // Auto-advance slideshow every 5 seconds
   useEffect(() => {
@@ -36,74 +37,58 @@ const Index = () => {
     return () => clearInterval(interval);
   }, [heroImages.length]);
 
-  // Navigation functions
-  const goToPrevious = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? heroImages.length - 1 : prevIndex - 1
-    );
-  };
-
-  const goToNext = () => {
-    setCurrentImageIndex((prevIndex) =>
-      (prevIndex + 1) % heroImages.length
-    );
-  };
-
-  // Keyboard navigation
+  // Handle scroll effect for image zoom
   useEffect(() => {
-    const handleKeyPress = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft') {
-        goToPrevious();
-      } else if (event.key === 'ArrowRight') {
-        goToNext();
-      }
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
     };
 
-    window.addEventListener('keydown', handleKeyPress);
-    return () => window.removeEventListener('keydown', handleKeyPress);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+
 
   return (
     <Layout>
       {/* Hero Section with Slideshow Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background Images Slideshow with Enhanced Transitions */}
+        {/* Background Images Slideshow with Enhanced Transitions and Scroll Effect */}
         <div className="absolute inset-0 slideshow-container">
-          {heroImages.map((image, index) => (
-            <div
-              key={index}
-              className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out ${
-                index === currentImageIndex
-                  ? 'opacity-100 scale-100 slideshow-image'
-                  : 'opacity-0 scale-105'
-              }`}
-              style={{
-                backgroundImage: `url("${image}")`,
-                transitionDelay: index === currentImageIndex ? '0ms' : '200ms'
-              }}
-            />
-          ))}
+          {heroImages.map((image, index) => {
+            // Calculate scroll-based zoom effect - image gets closer (larger) when scrolling
+            const scrollProgress = Math.min(scrollY / 500, 1); // Normalize scroll to 0-1 over 500px
+            const zoomScale = index === currentImageIndex
+              ? 1 + (scrollProgress * 0.3) // Scale from 1 to 1.3 when scrolling
+              : 1.05;
+
+            return (
+              <div
+                key={index}
+                className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out ${
+                  index === currentImageIndex
+                    ? 'opacity-100 slideshow-image'
+                    : 'opacity-0'
+                }`}
+                style={{
+                  backgroundImage: `url("${image}")`,
+                  transform: `scale(${zoomScale})`,
+                  transitionDelay: index === currentImageIndex ? '0ms' : '200ms'
+                }}
+              />
+            );
+          })}
 
           {/* Enhanced gradient overlay for better text readability */}
-          <div className="absolute inset-0 slideshow-gradient-overlay" />
+          <div
+            className="absolute inset-0 slideshow-gradient-overlay transition-opacity duration-300"
+            style={{
+              opacity: 0.4 + (Math.min(scrollY / 300, 1) * 0.3) // Darken overlay when scrolling
+            }}
+          />
         </div>
 
-        {/* Enhanced Navigation Arrows */}
-        <button
-          onClick={goToPrevious}
-          className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-cream-beige p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg border border-white/20"
-          aria-label="Previous image"
-        >
-          <ChevronLeft className="h-6 w-6" />
-        </button>
 
-        <button
-          onClick={goToNext}
-          className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-cream-beige p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg border border-white/20"
-          aria-label="Next image"
-        >
-          <ChevronRight className="h-6 w-6" />
-        </button>
 
 
 
@@ -122,7 +107,12 @@ const Index = () => {
             />
           ))}
         </div>
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
+        <div
+          className="relative z-10 text-center max-w-4xl mx-auto px-4 transition-transform duration-300"
+          style={{
+            transform: `translateY(${scrollY * 0.3}px)` // Subtle parallax effect
+          }}
+        >
           <div className="mb-6 animate-slide-in-up">
             <Coffee className="h-20 w-20 mx-auto mb-4 text-cream-beige" />
           </div>

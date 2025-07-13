@@ -314,3 +314,29 @@ All colors MUST be HSL.
     rgba(0,0,0,0.5) 100%
   );
 }
+
+/* Coffee cup menu button animations */
+@keyframes coffee-steam {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-2px) scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes coffee-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+.coffee-menu-icon {
+  animation: coffee-steam 2s ease-in-out infinite;
+}
+
+.coffee-menu-icon:hover {
+  animation: coffee-wiggle 0.5s ease-in-out;
+}

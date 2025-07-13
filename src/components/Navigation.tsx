@@ -1,7 +1,7 @@
 
 import { Link, useLocation } from "react-router-dom";
-import { Coffee, Menu, X, ChevronDown, Home, BookOpen, Image, Info, Phone, ShoppingCart, Calendar, QrCode } from "lucide-react";
-import { useState } from "react";
+import { Coffee, X, ChevronDown, Home, BookOpen, Image, Info, Phone, ShoppingCart, Calendar, QrCode } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,6 +13,18 @@ import {
 const Navigation = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Handle scroll effect for navbar transparency
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const leftNavItems = [
     { path: "/", label: "Home", icon: Home },
@@ -33,7 +45,16 @@ const Navigation = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="bg-gradient-to-r from-coffee-brown to-espresso-black text-cream-beige shadow-xl sticky top-0 z-50 backdrop-blur-sm">
+    <nav
+      className={`sticky top-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'bg-gradient-to-r from-coffee-brown to-espresso-black shadow-xl backdrop-blur-sm text-cream-beige'
+          : 'bg-transparent backdrop-blur-sm text-white shadow-sm'
+      }`}
+      style={{
+        textShadow: isScrolled ? 'none' : '0 2px 4px rgba(0,0,0,0.5)'
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
           {/* Desktop Navigation */}
@@ -114,9 +135,15 @@ const Navigation = () => {
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-caramel-orange p-1.5 rounded-md hover:bg-white/10 transition-all duration-200"
+              className={`p-2 rounded-full transition-all duration-300 hover:bg-white/10 hover:shadow-lg ${
+                isMenuOpen ? 'rotate-180 scale-110' : 'hover:scale-110'
+              }`}
             >
-              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isMenuOpen ? (
+                <X className="h-5 w-5 text-caramel-orange transition-transform duration-300" />
+              ) : (
+                <Coffee className="h-5 w-5 text-caramel-orange coffee-menu-icon" />
+              )}
             </button>
           </div>
         </div>
