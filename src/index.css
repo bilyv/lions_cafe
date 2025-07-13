@@ -3,9 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import custom animations */
-@import './styles/animations.css';
-
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
@@ -243,4 +240,77 @@ All colors MUST be HSL.
 
 .animation-delay-600 {
   animation-delay: 0.6s;
+}
+
+/* Hero slideshow animations */
+@keyframes slideshow-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideshow-slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideshow-zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.slideshow-image {
+  animation: slideshow-fade-in 1.5s ease-out;
+}
+
+.slideshow-image-alt {
+  animation: slideshow-zoom-in 1.5s ease-out;
+}
+
+/* Smooth transitions for slideshow */
+.slideshow-container {
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slideshow navigation dots animation */
+@keyframes dot-pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+}
+
+.slideshow-dot-active {
+  animation: dot-pulse 2s ease-in-out infinite;
+}
+
+/* Beautiful gradient overlay for better text readability */
+.slideshow-gradient-overlay {
+  background: linear-gradient(
+    45deg,
+    rgba(0,0,0,0.6) 0%,
+    rgba(0,0,0,0.3) 50%,
+    rgba(0,0,0,0.5) 100%
+  );
 }

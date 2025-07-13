@@ -2,27 +2,126 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Coffee, ArrowDown } from "lucide-react";
+import { Coffee, ArrowDown, ChevronLeft, ChevronRight } from "lucide-react";
 import FeaturedMenu from "@/components/FeaturedMenu";
 import ReviewsSection from "@/components/ReviewsSection";
 import ValueSection from "@/components/ValueSection";
 import PromotionsSection from "@/components/PromotionsSection";
 import LoyaltyProgram from "@/components/LoyaltyProgram";
 import ReservationPopup from "@/components/ReservationPopup";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Index = () => {
   const [isReservationOpen, setIsReservationOpen] = useState(false);
 
+  // Slideshow images from public directory - ChatGPT generated café images
+  const heroImages = [
+    "/ChatGPT Image Jul 13, 2025, 04_58_55 PM.png",
+    "/ChatGPT Image Jul 13, 2025, 04_59_05 PM.png",
+    "/ChatGPT Image Jul 13, 2025, 04_59_29 PM.png",
+    "/ChatGPT Image Jul 13, 2025, 05_10_06 PM.png",
+    "/lion cafe 2.jpg"
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Auto-advance slideshow every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        (prevIndex + 1) % heroImages.length
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
+  // Navigation functions
+  const goToPrevious = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? heroImages.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentImageIndex((prevIndex) =>
+      (prevIndex + 1) % heroImages.length
+    );
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'ArrowLeft') {
+        goToPrevious();
+      } else if (event.key === 'ArrowRight') {
+        goToNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, []);
+
   return (
     <Layout>
-      {/* Hero Section with Background Image */}
-      <section 
-        className="relative h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1721322800607-8c38375eef04?w=600&h=400&fit=crop")'
-        }}
-      >
+      {/* Hero Section with Slideshow Background */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Images Slideshow with Enhanced Transitions */}
+        <div className="absolute inset-0 slideshow-container">
+          {heroImages.map((image, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out ${
+                index === currentImageIndex
+                  ? 'opacity-100 scale-100 slideshow-image'
+                  : 'opacity-0 scale-105'
+              }`}
+              style={{
+                backgroundImage: `url("${image}")`,
+                transitionDelay: index === currentImageIndex ? '0ms' : '200ms'
+              }}
+            />
+          ))}
+
+          {/* Enhanced gradient overlay for better text readability */}
+          <div className="absolute inset-0 slideshow-gradient-overlay" />
+        </div>
+
+        {/* Enhanced Navigation Arrows */}
+        <button
+          onClick={goToPrevious}
+          className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-cream-beige p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg border border-white/20"
+          aria-label="Previous image"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </button>
+
+        <button
+          onClick={goToNext}
+          className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-cream-beige p-3 rounded-full transition-all duration-300 hover:scale-110 hover:shadow-lg border border-white/20"
+          aria-label="Next image"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </button>
+
+
+
+        {/* Enhanced Slideshow Navigation Dots */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full">
+          {heroImages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentImageIndex(index)}
+              className={`w-4 h-4 rounded-full transition-all duration-500 border-2 ${
+                index === currentImageIndex
+                  ? 'bg-cream-beige border-cream-beige scale-125 slideshow-dot-active shadow-lg'
+                  : 'bg-transparent border-cream-beige/60 hover:border-cream-beige hover:bg-cream-beige/30 hover:scale-110'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
           <div className="mb-6 animate-slide-in-up">
             <Coffee className="h-20 w-20 mx-auto mb-4 text-cream-beige" />
