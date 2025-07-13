@@ -1,7 +1,7 @@
 
 import { Link, useLocation } from "react-router-dom";
-import { Coffee, X, ChevronDown, Home, BookOpen, Image, Info, Phone, ShoppingCart, Calendar, QrCode } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Coffee, X, ChevronDown, Home, BookOpen, Info, Phone, ShoppingCart, Calendar, QrCode } from "lucide-react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -13,23 +13,10 @@ import {
 const Navigation = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  // Handle scroll effect for navbar transparency
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const leftNavItems = [
     { path: "/", label: "Home", icon: Home },
     { path: "/menu", label: "Menu", icon: BookOpen },
-    { path: "/gallery", label: "Gallery", icon: Image },
   ];
 
   const rightNavItems = [
@@ -46,14 +33,7 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-gradient-to-r from-coffee-brown to-espresso-black shadow-xl backdrop-blur-sm text-cream-beige'
-          : 'bg-transparent backdrop-blur-sm text-white shadow-sm'
-      }`}
-      style={{
-        textShadow: isScrolled ? 'none' : '0 2px 4px rgba(0,0,0,0.5)'
-      }}
+      className={`sticky top-0 z-50 transition-all duration-500 bg-gradient-to-r from-coffee-brown to-espresso-black shadow-xl backdrop-blur-sm text-cream-beige`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">

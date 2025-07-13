@@ -2,11 +2,10 @@
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Coffee, ArrowDown } from "lucide-react";
+import { Coffee } from "lucide-react";
 import FeaturedMenu from "@/components/FeaturedMenu";
 import ReviewsSection from "@/components/ReviewsSection";
 import ValueSection from "@/components/ValueSection";
-import PromotionsSection from "@/components/PromotionsSection";
 import LoyaltyProgram from "@/components/LoyaltyProgram";
 import ReservationPopup from "@/components/ReservationPopup";
 import { useState, useEffect } from "react";
@@ -14,25 +13,27 @@ import { useState, useEffect } from "react";
 const Index = () => {
   const [isReservationOpen, setIsReservationOpen] = useState(false);
 
-  // Slideshow images from public directory - ChatGPT generated café images
+  // Slideshow images from images folder - High-quality café images
   const heroImages = [
-    "/ChatGPT Image Jul 13, 2025, 04_58_55 PM.png",
-    "/ChatGPT Image Jul 13, 2025, 04_59_05 PM.png",
-    "/ChatGPT Image Jul 13, 2025, 04_59_29 PM.png",
-    "/ChatGPT Image Jul 13, 2025, 05_10_06 PM.png",
-    "/lion cafe 2.jpg"
+    "/envato-labs-ai-02cc4cca-55a0-417c-b0b3-b107e6e7f876.jpg",
+    "/envato-labs-ai-118ec6d7-1d07-46d9-96d8-1b1e2c842dda.jpg",
+    "/envato-labs-ai-469d25c0-91ca-45a5-98c4-dfdcad610bd3.jpg",
+    "/envato-labs-ai-b93cf908-575d-4887-a819-777406b2a22f.jpg",
+    "/envato-labs-ai-c326edd3-2fff-4696-a61e-f39179b628c5.jpg",
+    "/envato-labs-ai-f62fd7d2-3aef-4a46-a735-0113ab162b49.jpg",
+    "/envato-labs-ai-ff3a457e-41e2-4c95-a30c-077e8ba9e163.jpg"
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [scrollY, setScrollY] = useState(0);
 
-  // Auto-advance slideshow every 5 seconds
+  // Auto-advance slideshow every 6 seconds (slightly longer for better viewing)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
         (prevIndex + 1) % heroImages.length
       );
-    }, 5000);
+    }, 6000);
 
     return () => clearInterval(interval);
   }, [heroImages.length]);
@@ -54,6 +55,7 @@ const Index = () => {
       {/* Hero Section with Slideshow Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Images Slideshow with Enhanced Transitions and Scroll Effect */}
+        {/* Using high-quality café images from the images folder for better visual appeal */}
         <div className="absolute inset-0 slideshow-container">
           {heroImages.map((image, index) => {
             // Calculate scroll-based zoom effect - image gets closer (larger) when scrolling
@@ -114,27 +116,26 @@ const Index = () => {
           }}
         >
           <div className="mb-6 animate-slide-in-up">
-            <Coffee className="h-20 w-20 mx-auto mb-4 text-cream-beige" />
+            <Coffee className="h-20 w-20 mx-auto mb-4 text-amber-100" />
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-in-up animation-delay-200 text-cream-beige">
-            Lion's Café
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-in-up animation-delay-200 text-amber-100">
+            <span className="text-4xl">🦁</span> Lion's Café <span className="text-4xl">☕</span>
           </h1>
-          <p className="text-2xl md:text-3xl font-semibold mb-4 animate-slide-in-up animation-delay-300 text-cream-beige">
-            Brewed Bold. Served with Pride.
+          <p className="text-2xl md:text-3xl font-semibold mb-4 animate-slide-in-up animation-delay-300 text-amber-200">
+            <span className="text-xl">✨</span> Brewed Bold. Served with Pride. <span className="text-xl">✨</span>
           </p>
-          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-slide-in-up animation-delay-400 text-cream-beige/90">
-            Experience the perfect blend of exceptional coffee and warm hospitality in the heart of the city.
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-slide-in-up animation-delay-400 leading-relaxed text-amber-100 font-medium">
+            <span className="text-lg">🌟</span> Experience the perfect blend of exceptional coffee <span className="text-lg">☕</span> and warm hospitality <span className="text-lg">🤝</span>
+            <br />
+            <span className="text-yellow-200">in the heart of the city <span className="text-lg">🏙️</span> where every sip tells a story <span className="text-lg">📖</span></span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in-up animation-delay-500">
-            <Button asChild size="lg" className="bg-cream-beige text-coffee-brown hover:bg-cream-beige/90 shadow-lg hover:shadow-xl transition-all duration-300">
-              <Link to="/menu">Explore Our Menu</Link>
+            <Button asChild size="lg" className="bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-900 hover:from-amber-200 hover:to-yellow-200 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold">
+              <Link to="/menu">🍽️ Explore Our Menu</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-cream-beige text-cream-beige hover:bg-cream-beige hover:text-coffee-brown shadow-lg hover:shadow-xl transition-all duration-300">
-              <Link to="/qr-order">Order by QR Scan</Link>
+            <Button asChild variant="outline" size="lg" className="border-2 border-amber-200 text-amber-100 hover:bg-amber-100 hover:text-amber-900 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold">
+              <Link to="/qr-order">📱 Order by QR Scan</Link>
             </Button>
-          </div>
-          <div className="mt-12 animate-bounce">
-            <ArrowDown className="h-8 w-8 mx-auto text-cream-beige/70" />
           </div>
         </div>
       </section>
@@ -150,9 +151,6 @@ const Index = () => {
 
       {/* Loyalty Program */}
       <LoyaltyProgram />
-
-      {/* Promotions Section */}
-      <PromotionsSection />
 
       {/* Call to Action */}
       <section className="py-16 bg-coffee-brown text-cream-beige">

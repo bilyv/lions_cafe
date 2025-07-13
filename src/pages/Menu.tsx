@@ -159,6 +159,59 @@ const Menu = () => {
           </div>
         </div>
 
+        {/* Featured Video Section */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-4 animate-fade-in" style={{ color: 'hsl(17, 41%, 31%)' }}>
+              🎬 Experience Lion's Café
+            </h2>
+            <p className="text-lg animate-fade-in animation-delay-200" style={{ color: 'hsl(0, 0%, 40%)' }}>
+              Take a virtual tour of our café and see what makes us special ✨
+            </p>
+          </div>
+
+          {/* Video Container with enhanced styling */}
+          <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-amber-50 to-orange-50 p-3 animate-slide-in-up hover:shadow-3xl transition-all duration-300">
+            <div className="relative rounded-xl overflow-hidden bg-black">
+              <video
+                className="w-full h-auto max-h-96 object-cover transition-transform duration-300 hover:scale-105"
+                controls
+                poster="/envato-labs-ai-02cc4cca-55a0-417c-b0b3-b107e6e7f876.jpg"
+                preload="metadata"
+                style={{ aspectRatio: '16/9' }}
+              >
+                <source src="/envato_video_gen_Jul_13_2025_20_47_30.mp4" type="video/mp4" />
+                <p className="text-center p-8 text-white bg-gray-800">
+                  🎥 Your browser does not support the video tag.
+                  <br />
+                  <a
+                    href="/envato_video_gen_Jul_13_2025_20_47_30.mp4"
+                    className="text-amber-400 hover:text-amber-300 hover:underline ml-1 inline-block mt-2"
+                    download
+                  >
+                    📥 Download the video instead
+                  </a>
+                </p>
+              </video>
+
+              {/* Video overlay with subtle gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+
+              {/* Corner badge */}
+              <div className="absolute top-3 right-3 bg-amber-500 text-white px-3 py-1 rounded-full text-sm font-semibold shadow-lg">
+                🎥 Featured
+              </div>
+            </div>
+
+            {/* Video description */}
+            <div className="mt-4 text-center">
+              <p className="text-sm" style={{ color: 'hsl(0, 0%, 50%)' }}>
+                🌟 Discover the ambiance, quality, and passion that makes Lion's Café your perfect coffee destination
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Menu Content */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           {menuCategories.map((category, categoryIndex) => (
