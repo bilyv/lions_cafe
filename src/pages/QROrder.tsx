@@ -16,7 +16,7 @@ const QROrder = () => {
           }}
         >
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-slide-in-up">Order by QR Scan</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-slide-in-up">Scan to Order</h1>
             <p className="text-xl animate-slide-in-up animation-delay-200" style={{ color: 'hsl(42, 15%, 96%)' }}>
               Fast, contactless ordering right from your table
             </p>
@@ -26,7 +26,7 @@ const QROrder = () => {
         {/* How It Works Section */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <h2 className="text-3xl font-bold text-center mb-12" style={{ color: 'hsl(17, 41%, 31%)' }}>
-            How QR Ordering Works
+            How Scan to Order Works
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -35,10 +35,10 @@ const QROrder = () => {
                 <QrCode className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-semibold mb-2" style={{ color: 'hsl(17, 41%, 31%)' }}>
-                Scan QR Code
+                Scan Code
               </h3>
               <p style={{ color: 'hsl(0, 0%, 40%)' }}>
-                Use your phone's camera to scan the QR code on your table
+                Use your phone's camera to scan the code on your table
               </p>
             </div>
 
@@ -85,7 +85,7 @@ const QROrder = () => {
                 <QrCode className="h-32 w-32 mx-auto text-white" />
               </div>
               <p className="text-sm" style={{ color: 'hsl(0, 0%, 40%)' }}>
-                Sample QR Code - Scan this to try our demo menu
+                Sample Code - Scan this to try our demo menu
               </p>
             </div>
             <Button size="lg" className="bg-caramel-orange hover:bg-caramel-orange/90 text-white">
@@ -98,7 +98,7 @@ const QROrder = () => {
         <div className="py-16" style={{ backgroundColor: 'hsl(20, 20%, 82%)' }}>
           <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
             <h3 className="text-2xl font-bold mb-8" style={{ color: 'hsl(17, 41%, 31%)' }}>
-              Benefits of QR Ordering
+              Benefits of Scan to Order
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div>

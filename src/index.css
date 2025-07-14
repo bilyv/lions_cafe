@@ -489,6 +489,60 @@ All colors MUST be HSL.
   }
 }
 
+/* Navbar scroll animations */
+@keyframes navbarCorner {
+  0% {
+    border-radius: 0;
+    margin: 0;
+    transform: translateY(0);
+  }
+  100% {
+    border-radius: 0 0 20px 20px;
+    margin: 0 20px;
+    transform: translateY(20px);
+  }
+}
+
+@keyframes navbarReturn {
+  0% {
+    border-radius: 0 0 20px 20px;
+    margin: 0 20px;
+    transform: translateY(20px);
+  }
+  100% {
+    border-radius: 0;
+    margin: 0;
+    transform: translateY(0);
+  }
+}
+
+/* Featured section forward animation */
+@keyframes sectionForward {
+  0% {
+    transform: translateZ(0) scale(1);
+    z-index: 10;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  100% {
+    transform: translateZ(50px) scale(1.02);
+    z-index: 30;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+}
+
+@keyframes sectionReturn {
+  0% {
+    transform: translateZ(50px) scale(1.02);
+    z-index: 30;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    transform: translateZ(0) scale(1);
+    z-index: 10;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+}
+
 /* Animation classes */
 .animate-float {
   animation: float 3s ease-in-out infinite;
@@ -516,6 +570,90 @@ All colors MUST be HSL.
 
 .animate-pulse-glow {
   animation: pulseGlow 2s ease-in-out infinite;
+}
+
+/* Navbar scroll animation classes */
+.animate-navbar-corner {
+  animation: navbarCorner 0.5s ease-out forwards;
+}
+
+.animate-navbar-return {
+  animation: navbarReturn 0.5s ease-out forwards;
+}
+
+/* Featured section animation classes */
+.animate-section-forward {
+  animation: sectionForward 0.7s ease-out forwards;
+}
+
+.animate-section-return {
+  animation: sectionReturn 0.7s ease-out forwards;
+}
+
+/* Smooth transitions for scroll effects */
+.navbar-scroll-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-scroll-transition {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Mobile menu animations */
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOutToTop {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-slide-in-from-top {
+  animation: slideInFromTop 0.3s ease-out forwards;
+}
+
+.animate-slide-out-to-top {
+  animation: slideOutToTop 0.3s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-fade-out {
+  animation: fadeOut 0.3s ease-out forwards;
 }
 
 .animate-fade-in-up {

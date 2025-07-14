@@ -1,7 +1,7 @@
 
 import { Link, useLocation } from "react-router-dom";
-import { Coffee, X, ChevronDown, Home, BookOpen, Info, Phone, ShoppingCart, Calendar, QrCode } from "lucide-react";
-import { useState } from "react";
+import { Coffee, X, ChevronDown, Home, BookOpen, Info, Phone, Calendar, QrCode, Gift } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,10 +9,12 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useScrollPosition } from "@/hooks/use-mobile";
 
 const Navigation = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { scrollY, isAtTop, isPastHero, scrollDirection } = useScrollPosition();
 
   const leftNavItems = [
     { path: "/", label: "Home", icon: Home },
@@ -26,14 +28,40 @@ const Navigation = () => {
 
   const orderItems = [
     { path: "/booking", label: "Book a Table", icon: Calendar },
-    { path: "/qr-order", label: "Order by QR Scan", icon: QrCode },
+    { path: "/qr-order", label: "Scan to Order", icon: QrCode },
+    { path: "/loyalty", label: "Loyalty Program", icon: Gift },
   ];
 
   const isActive = (path: string) => location.pathname === path;
 
+  // Calculate navbar visibility and styles based on scroll position
+  const shouldHideNavbar = isPastHero && scrollDirection === 'down';
+
+  // Close mobile menu when navbar hides
+  useEffect(() => {
+    if (shouldHideNavbar && isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  }, [shouldHideNavbar, isMenuOpen]);
+
+  const navbarStyles = {
+    transform: shouldHideNavbar
+      ? 'translateY(-100%)'
+      : isAtTop
+        ? 'translateY(0)'
+        : `translateY(${Math.min(scrollY * 0.1, 20)}px)`,
+    borderRadius: isAtTop ? '0px' : '20px',
+    margin: isAtTop ? '0' : '0 20px',
+    boxShadow: isAtTop
+      ? '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
+      : '0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+    opacity: shouldHideNavbar ? 0 : 1,
+  };
+
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-500 bg-gradient-to-r from-coffee-brown via-coffee-brown to-black shadow-xl backdrop-blur-sm text-cream-beige`}
+      className={`sticky top-0 z-50 relative transition-all duration-500 bg-gradient-to-r from-coffee-brown via-coffee-brown to-black backdrop-blur-sm text-cream-beige`}
+      style={navbarStyles}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
@@ -128,50 +156,63 @@ const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="lg:hidden pb-3 border-t border-white/10 mt-2 pt-3">
-            <div className="flex flex-col space-y-0.5">
-              {/* Navigation Items */}
-              {[...leftNavItems, ...rightNavItems].map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`flex items-center space-x-2 px-3 py-2 rounded-md text-xs font-medium transition-all duration-200 ${
-                    isActive(item.path)
-                      ? "bg-white/20 text-white shadow-md"
-                      : "hover:bg-white/10 hover:text-white"
-                  }`}
-                >
-                  <item.icon className="h-3.5 w-3.5" />
-                  <span>{item.label}</span>
-                </Link>
-              ))}
 
-              {/* Mobile Order Section */}
-              <div className="mt-3 pt-2 border-t border-white/10">
-                <p className="text-caramel-orange font-medium mb-2 px-3 text-xs uppercase tracking-wide">
-                  Order Now
-                </p>
-                <div className="space-y-0.5">
-                  {orderItems.map((item) => (
-                    <Link
-                      key={item.path}
-                      to={item.path}
-                      onClick={() => setIsMenuOpen(false)}
-                      className="flex items-center space-x-2 px-3 py-2 rounded-md text-xs font-medium hover:bg-white/10 hover:text-white transition-all duration-200"
-                    >
-                      <item.icon className="h-3.5 w-3.5" />
-                      <span>{item.label}</span>
-                    </Link>
-                  ))}
+      </div>
+
+      {/* Mobile Navigation Overlay */}
+      {isMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 lg:hidden animate-fade-in"
+            onClick={() => setIsMenuOpen(false)}
+          />
+
+          {/* Mobile Menu Dropdown */}
+          <div className="absolute top-full left-0 right-0 bg-gradient-to-r from-coffee-brown via-coffee-brown to-black backdrop-blur-sm text-cream-beige shadow-2xl z-50 lg:hidden animate-slide-in-from-top border-t border-white/10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+              <div className="flex flex-col space-y-1">
+                {/* Navigation Items */}
+                {[...leftNavItems, ...rightNavItems].map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                      isActive(item.path)
+                        ? "bg-white/20 text-white shadow-md"
+                        : "hover:bg-white/10 hover:text-white"
+                    }`}
+                  >
+                    <item.icon className="h-4 w-4" />
+                    <span>{item.label}</span>
+                  </Link>
+                ))}
+
+                {/* Mobile Order Section */}
+                <div className="mt-4 pt-3 border-t border-white/20">
+                  <p className="text-caramel-orange font-semibold mb-3 px-4 text-sm uppercase tracking-wide">
+                    Order Now
+                  </p>
+                  <div className="space-y-1">
+                    {orderItems.map((item) => (
+                      <Link
+                        key={item.path}
+                        to={item.path}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center space-x-3 px-4 py-3 rounded-lg text-sm font-medium hover:bg-white/10 hover:text-white transition-all duration-200"
+                      >
+                        <item.icon className="h-4 w-4" />
+                        <span>{item.label}</span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        )}
-      </div>
+        </>
+      )}
     </nav>
   );
 };

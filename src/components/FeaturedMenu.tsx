@@ -3,10 +3,16 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Coffee, Heart, Users } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useIntersectionObserver } from "@/hooks/use-mobile";
 
 const FeaturedMenu = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { isIntersecting, intersectionRatio } = useIntersectionObserver(sectionRef, {
+    threshold: [0, 0.2, 0.5, 0.8, 1],
+    rootMargin: '-100px 0px -100px 0px'
+  });
 
   const featuredItems = [
     {
@@ -70,8 +76,23 @@ const FeaturedMenu = () => {
   // Duplicate items for seamless loop
   const duplicatedItems = [...featuredItems, ...featuredItems];
 
+  // Calculate section styles based on intersection (removed scaling effect)
+  const sectionStyles = {
+    transform: isIntersecting && intersectionRatio > 0.3
+      ? `translateZ(50px)`
+      : 'translateZ(0)',
+    zIndex: isIntersecting && intersectionRatio > 0.3 ? 30 : 10,
+    boxShadow: isIntersecting && intersectionRatio > 0.3
+      ? '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+      : '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+  };
+
   return (
-    <section className="py-16 bg-cream-beige">
+    <section
+      ref={sectionRef}
+      className="py-16 bg-cream-beige relative transition-all duration-700 ease-out"
+      style={sectionStyles}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Welcoming Description Section */}
         <div className="text-center mb-16">

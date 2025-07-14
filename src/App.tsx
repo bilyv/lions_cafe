@@ -11,6 +11,7 @@ import Contact from "./pages/Contact";
 
 import BookTable from "./pages/BookTable";
 import QROrder from "./pages/QROrder";
+import Loyalty from "./pages/Loyalty";
 import NotFound from "./pages/NotFound";
 
 // Admin imports
@@ -41,6 +42,7 @@ const App = () => (
 
           <Route path="/booking" element={<BookTable />} />
           <Route path="/qr-order" element={<QROrder />} />
+          <Route path="/loyalty" element={<Loyalty />} />
 
           {/* Admin Routes */}
           <Route path="/admin/login" element={<AdminLogin />} />
