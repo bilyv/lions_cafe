@@ -40,9 +40,9 @@ const ChatButton = () => {
       {/* Chat Window - Compact & Iconic */}
       {isOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-72 animate-scale-in">
-          <Card className="shadow-2xl border-0 bg-gradient-to-br from-cream-beige/95 to-amber-50/95 backdrop-blur-sm overflow-hidden">
+          <Card className="shadow-2xl border-0 bg-gradient-to-br from-coffee-brown/95 to-espresso-black/90 backdrop-blur-sm overflow-hidden">
             {/* Compact Header */}
-            <CardHeader className="bg-gradient-to-r from-coffee-brown to-amber-800 text-cream-beige p-3 relative overflow-hidden">
+            <CardHeader className="bg-gradient-to-r from-espresso-black to-coffee-brown text-cream-beige p-3 relative overflow-hidden">
               {/* Coffee Bean Decoration */}
               <div className="absolute top-1 right-1 w-2 h-3 bg-amber-400/20 rounded-full transform rotate-12"></div>
 
@@ -70,10 +70,10 @@ const ChatButton = () => {
 
             <CardContent className="p-0">
               {/* Compact Welcome Message */}
-              <div className="p-3 border-b border-amber-200/50">
-                <div className="bg-white/80 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-amber-200/30 relative">
+              <div className="p-3 border-b border-cream-beige/30">
+                <div className="bg-cream-beige/90 backdrop-blur-sm rounded-xl p-3 shadow-sm border border-caramel-orange/30 relative">
                   {/* Speech Bubble Tail */}
-                  <div className="absolute -bottom-1 left-4 w-3 h-3 bg-white/80 transform rotate-45 border-r border-b border-amber-200/30"></div>
+                  <div className="absolute -bottom-1 left-4 w-3 h-3 bg-cream-beige/90 transform rotate-45 border-r border-b border-caramel-orange/30"></div>
 
                   <div className="flex items-start space-x-2">
                     <div className="w-6 h-6 rounded-full bg-gradient-to-r from-caramel-orange to-amber-600 flex items-center justify-center shadow-sm">
@@ -96,7 +96,7 @@ const ChatButton = () => {
                 <div className="grid grid-cols-2 gap-2">
                   <Button
                     variant="outline"
-                    className="h-auto p-2 bg-white/60 backdrop-blur-sm border-amber-300/50 hover:bg-caramel-orange/10 hover:border-caramel-orange/50 transition-all duration-300 group"
+                    className="h-auto p-2 bg-cream-beige/80 backdrop-blur-sm border-caramel-orange/50 hover:bg-caramel-orange/20 hover:border-caramel-orange/70 transition-all duration-300 group"
                   >
                     <div className="flex flex-col items-center space-y-1">
                       <div className="w-6 h-6 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -108,7 +108,7 @@ const ChatButton = () => {
 
                   <Button
                     variant="outline"
-                    className="h-auto p-2 bg-white/60 backdrop-blur-sm border-amber-300/50 hover:bg-caramel-orange/10 hover:border-caramel-orange/50 transition-all duration-300 group"
+                    className="h-auto p-2 bg-cream-beige/80 backdrop-blur-sm border-caramel-orange/50 hover:bg-caramel-orange/20 hover:border-caramel-orange/70 transition-all duration-300 group"
                   >
                     <div className="flex flex-col items-center space-y-1">
                       <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -120,7 +120,7 @@ const ChatButton = () => {
 
                   <Button
                     variant="outline"
-                    className="h-auto p-2 bg-white/60 backdrop-blur-sm border-amber-300/50 hover:bg-caramel-orange/10 hover:border-caramel-orange/50 transition-all duration-300 group"
+                    className="h-auto p-2 bg-cream-beige/80 backdrop-blur-sm border-caramel-orange/50 hover:bg-caramel-orange/20 hover:border-caramel-orange/70 transition-all duration-300 group"
                   >
                     <div className="flex flex-col items-center space-y-1">
                       <div className="w-6 h-6 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -132,7 +132,7 @@ const ChatButton = () => {
 
                   <Button
                     variant="outline"
-                    className="h-auto p-2 bg-white/60 backdrop-blur-sm border-amber-300/50 hover:bg-caramel-orange/10 hover:border-caramel-orange/50 transition-all duration-300 group"
+                    className="h-auto p-2 bg-cream-beige/80 backdrop-blur-sm border-caramel-orange/50 hover:bg-caramel-orange/20 hover:border-caramel-orange/70 transition-all duration-300 group"
                   >
                     <div className="flex flex-col items-center space-y-1">
                       <div className="w-6 h-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
@@ -145,8 +145,8 @@ const ChatButton = () => {
               </div>
 
               {/* Compact Footer */}
-              <div className="bg-gradient-to-r from-amber-100/50 to-orange-100/50 p-2 text-center border-t border-amber-200/30">
-                <div className="flex items-center justify-center space-x-1 text-coffee-brown/80">
+              <div className="bg-gradient-to-r from-coffee-brown/30 to-espresso-black/20 p-2 text-center border-t border-cream-beige/30">
+                <div className="flex items-center justify-center space-x-1 text-cream-beige/90">
                   <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
                   <p className="text-xs">
                     Responds in 2-3 min

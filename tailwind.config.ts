@@ -22,6 +22,8 @@ export default {
 			fontFamily: {
 				'sans': ['Poppins', 'system-ui', 'sans-serif'],
 				'poppins': ['Poppins', 'sans-serif'],
+				'dancing': ['Dancing Script', 'cursive'],
+				'caveat': ['Caveat', 'cursive'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',

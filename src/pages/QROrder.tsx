@@ -8,10 +8,10 @@ const QROrder = () => {
     <Layout>
       <div className="min-h-screen" style={{ backgroundColor: 'hsl(42, 15%, 96%)' }}>
         {/* Hero Section */}
-        <div 
+        <div
           className="relative text-white py-16 bg-cover bg-center bg-no-repeat"
-          style={{ 
-            backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("https://images.unsplash.com/photo-1607013251379-e6eadbd6126c?w=600&h=400&fit=crop")',
+          style={{
+            backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("/waiter1.jpg")',
             minHeight: '300px'
           }}
         >

@@ -340,3 +340,195 @@ All colors MUST be HSL.
 .coffee-menu-icon:hover {
   animation: coffee-wiggle 0.5s ease-in-out;
 }
+
+/* Horizontal slideshow animation for featured menu */
+@keyframes slideHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide-horizontal {
+  animation: slideHorizontal 40s linear infinite;
+}
+
+/* Pause animation class */
+.pause-animation {
+  animation-play-state: paused !important;
+}
+
+/* CTA Buttons horizontal slideshow animation */
+@keyframes slideHorizontalButtons {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide-horizontal-buttons {
+  animation: slideHorizontalButtons 15s linear infinite;
+}
+
+/* Enhanced coffee steam animation for navbar */
+@keyframes coffeeNavSteam {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(-1px) rotate(2deg) scale(1.02);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-2px) rotate(-1deg) scale(1.05);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-1px) rotate(1deg) scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+.animate-coffee-steam {
+  animation: coffeeNavSteam 3s ease-in-out infinite;
+}
+
+/* Enhanced scroll-based animations for About page */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(5deg);
+  }
+}
+
+@keyframes expandWidth {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 5rem;
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.8) rotate(-5deg);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0) rotate(-180deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2) rotate(-90deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes numberCount {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1.1);
+    filter: brightness(1.3);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Animation classes */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-expand-width {
+  animation: expandWidth 1s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.8s ease-out;
+}
+
+.animate-bounce-in {
+  animation: bounceIn 1s ease-out;
+}
+
+.animate-number-count {
+  animation: numberCount 1s ease-out;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Scroll animation states */
+.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-out {
+  opacity: 0;
+  transform: translateY(30px);
+}

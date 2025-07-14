@@ -6,7 +6,7 @@ import { Coffee } from "lucide-react";
 import FeaturedMenu from "@/components/FeaturedMenu";
 import ReviewsSection from "@/components/ReviewsSection";
 import ValueSection from "@/components/ValueSection";
-import LoyaltyProgram from "@/components/LoyaltyProgram";
+
 import ReservationPopup from "@/components/ReservationPopup";
 import { useState, useEffect } from "react";
 
@@ -94,21 +94,7 @@ const Index = () => {
 
 
 
-        {/* Enhanced Slideshow Navigation Dots */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-full">
-          {heroImages.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentImageIndex(index)}
-              className={`w-4 h-4 rounded-full transition-all duration-500 border-2 ${
-                index === currentImageIndex
-                  ? 'bg-cream-beige border-cream-beige scale-125 slideshow-dot-active shadow-lg'
-                  : 'bg-transparent border-cream-beige/60 hover:border-cream-beige hover:bg-cream-beige/30 hover:scale-110'
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
+
         <div
           className="relative z-10 text-center max-w-4xl mx-auto px-4 transition-transform duration-300"
           style={{
@@ -125,16 +111,14 @@ const Index = () => {
             <span className="text-xl">✨</span> Brewed Bold. Served with Pride. <span className="text-xl">✨</span>
           </p>
           <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto animate-slide-in-up animation-delay-400 leading-relaxed text-amber-100 font-medium">
-            <span className="text-lg">🌟</span> Experience the perfect blend of exceptional coffee <span className="text-lg">☕</span> and warm hospitality <span className="text-lg">🤝</span>
-            <br />
-            <span className="text-yellow-200">in the heart of the city <span className="text-lg">🏙️</span> where every sip tells a story <span className="text-lg">📖</span></span>
+            <span className="text-lg">🌟</span> Exceptional coffee and warm hospitality in the heart of the city <span className="text-lg">🏙️</span>
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-in-up animation-delay-500">
-            <Button asChild size="lg" className="bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-900 hover:from-amber-200 hover:to-yellow-200 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold">
-              <Link to="/menu">🍽️ Explore Our Menu</Link>
+          <div className="flex flex-row gap-6 justify-center animate-slide-in-up animation-delay-500">
+            <Button asChild size="lg" className="bg-transparent border-2 border-amber-200/80 text-amber-100 hover:bg-amber-100/20 hover:border-amber-100 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 font-semibold">
+              <Link to="/menu">🍽️ Our Menu</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-2 border-amber-200 text-amber-100 hover:bg-amber-100 hover:text-amber-900 shadow-lg hover:shadow-xl transition-all duration-300 font-semibold">
-              <Link to="/qr-order">📱 Order by QR Scan</Link>
+            <Button asChild size="lg" className="bg-transparent border-2 border-amber-200/80 text-amber-100 hover:bg-amber-100/20 hover:border-amber-100 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 font-semibold">
+              <Link to="/qr-order">📱 Scan to Order</Link>
             </Button>
           </div>
         </div>
@@ -149,26 +133,24 @@ const Index = () => {
       {/* Value Section */}
       <ValueSection />
 
-      {/* Loyalty Program */}
-      <LoyaltyProgram />
+
 
       {/* Call to Action */}
       <section className="py-16 bg-coffee-brown text-cream-beige">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 animate-fade-in">
+          <h2 className="font-caveat text-4xl md:text-5xl lg:text-6xl font-bold mb-4 animate-fade-in">
             Ready for Your Perfect Cup?
           </h2>
-          <p className="text-xl mb-8 animate-fade-in animation-delay-200">
+          <p className="font-caveat text-2xl md:text-3xl mb-8 animate-fade-in animation-delay-200">
             Join us today and discover why Lion's Café is the talk of the town.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in animation-delay-400">
-            <Button asChild size="lg" className="bg-caramel-orange hover:bg-caramel-orange/90 text-white shadow-lg hover:shadow-xl transition-all duration-300">
+          <div className="flex flex-row gap-4 justify-center animate-fade-in animation-delay-400">
+            <Button asChild size="sm" className="bg-caramel-orange hover:bg-caramel-orange/90 text-white shadow-lg hover:shadow-xl transition-all duration-300 px-6 py-2 text-sm font-semibold">
               <Link to="/menu">View Menu</Link>
             </Button>
             <Button
-              variant="outline"
-              size="lg"
-              className="border-cream-beige text-cream-beige hover:bg-cream-beige hover:text-coffee-brown shadow-lg hover:shadow-xl transition-all duration-300"
+              size="sm"
+              className="bg-transparent border-2 border-cream-beige/80 text-cream-beige hover:bg-cream-beige/20 hover:border-cream-beige backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-300 font-semibold px-6 py-2 text-sm"
               onClick={() => setIsReservationOpen(true)}
             >
               Reserve Table

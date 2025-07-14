@@ -49,3 +49,22 @@
   opacity: 0;
   transform: translateY(20px);
 }
+
+/* Horizontal slideshow animation */
+@keyframes slideHorizontal {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide-horizontal {
+  animation: slideHorizontal 40s linear infinite;
+}
+
+/* Pause animation class */
+.pause-animation {
+  animation-play-state: paused !important;
+}

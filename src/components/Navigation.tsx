@@ -33,7 +33,7 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`sticky top-0 z-50 transition-all duration-500 bg-gradient-to-r from-coffee-brown to-espresso-black shadow-xl backdrop-blur-sm text-cream-beige`}
+      className={`sticky top-0 z-50 transition-all duration-500 bg-gradient-to-r from-coffee-brown via-coffee-brown to-black shadow-xl backdrop-blur-sm text-cream-beige`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
@@ -59,7 +59,7 @@ const Navigation = () => {
 
             {/* Center Logo */}
             <Link to="/" className="flex items-center space-x-3 text-2xl font-bold hover:scale-105 transition-transform duration-300">
-              <Coffee className="h-10 w-10 text-caramel-orange drop-shadow-lg" />
+              <Coffee className="h-10 w-10 text-caramel-orange drop-shadow-lg coffee-menu-icon animate-coffee-steam" />
               <span className="bg-gradient-to-r from-caramel-orange to-yellow-400 bg-clip-text text-transparent">
                 Lion's Café
               </span>
@@ -107,7 +107,7 @@ const Navigation = () => {
           {/* Mobile Logo and Menu Button */}
           <div className="lg:hidden flex items-center justify-between w-full">
             <Link to="/" className="flex items-center space-x-1.5 text-lg font-bold">
-              <Coffee className="h-7 w-7 text-caramel-orange" />
+              <Coffee className="h-7 w-7 text-caramel-orange coffee-menu-icon animate-coffee-steam" />
               <span className="bg-gradient-to-r from-caramel-orange to-yellow-400 bg-clip-text text-transparent">
                 Lion's Café
               </span>
